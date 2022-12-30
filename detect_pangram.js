@@ -3,12 +3,14 @@
 // Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
 
 function isPangram(string){
-  //...
+  // generate object with aplhabets as keys
   var arr = prepareArr();
-  var str = string.toUpperCase().replace(/[^A-Z]/ig, ''); console.log(str);
+  //remove all charcters except alphabets from uppercase of input string
+  var str = string.toUpperCase().replace(/[^A-Z]/ig, ''); 
+  //count occurence of all alphabets
   for (var i = 0; i < string.length; i++) {
     arr[str[i]] += 1;
-  } console.log(arr);
+  } 
   for (const key in arr) {
     if (arr[key] === 0) {
       return false;
@@ -17,6 +19,9 @@ function isPangram(string){
   return true;
 }
 
+/**
+* generate object with aplhabets as keys
+**/
 function prepareArr() {
   var a = 65;
   var charArray = {};
@@ -25,3 +30,5 @@ function prepareArr() {
   
   return charArray;
 }
+
+export default isPangram
